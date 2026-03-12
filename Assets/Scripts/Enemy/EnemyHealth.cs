@@ -1,30 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-/// <summary>
-/// Simple enemy health system.
-/// </summary>
 public class EnemyHealth : MonoBehaviour
 {
-    public int max;
+    [HideInInspector] public int max;
     public int current;
 
+    EnemyAI enemyAI;
     private void Awake()
     {
         current = max;
+        enemyAI = GetComponent<EnemyAI>();
+
     }
-    
+
+    // Gọi khi PlayerSlash trúng đòn (hoặc các nguồn gây damage gọi DamageEnemy)
     public void DamageEnemy(int amount)
     {
-        current -= amount;
-        if(current <= 0)
+        // Nếu có EnemyAI — ủy quyền cho AI xử lý (anim + death + sync)
+        if (enemyAI != null)
         {
-            Death();
+            enemyAI.TakeDamage(amount);
+            // cập nhật current để UI đọc
+            current = Mathf.Max(0, enemyAI.CurrentHealth);
+            return;
         }
-    }
-    void Death()
-    {
-        Destroy(gameObject);
+
+        // fallback: nếu không có AI, xử lý ở đây
+        current -= amount;
+        if (current <= 0)
+        {
+            current = 0;
+            Destroy(gameObject);
+        }
     }
 }

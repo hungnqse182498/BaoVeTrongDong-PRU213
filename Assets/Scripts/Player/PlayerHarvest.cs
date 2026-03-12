@@ -24,7 +24,7 @@ public class PlayerHarvest : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             TryHarvestClose();
         }
@@ -58,9 +58,9 @@ public class PlayerHarvest : MonoBehaviour
     void TryHarvestFruit()
     {
         Collider2D hit =
-        Physics2D.OverlapCircle(transform.position, harvestRadius,bushesMask);
+        Physics2D.OverlapCircle(transform.position, harvestRadius, bushesMask);
 
-        if(hit != null)
+        if (hit != null)
         {
             BushFruits bush = hit.GetComponent<BushFruits>();
             if (bush.HasFruits())
@@ -76,4 +76,10 @@ public class PlayerHarvest : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, harvestRadius);
     }
+
+    public void OnHarvestButtonPressed()
+    {
+        TryHarvestClose();
+    }
+
 }

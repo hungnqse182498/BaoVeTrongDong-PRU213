@@ -329,8 +329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 120
-  bleed: 2
+  maxHealth: 500
+  bleed: 1
 --- !u!58 &30125870
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -721,7 +721,7 @@ Transform:
   m_GameObject: {fileID: 64076225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.17, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11615,7 +11615,7 @@ Transform:
   m_GameObject: {fileID: 854733549}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.041, y: -0.347, z: 0}
+  m_LocalPosition: {x: -0.28, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16700,8 +16700,8 @@ Transform:
   m_GameObject: {fileID: 905201040}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.5, z: 0}
-  m_LocalScale: {x: 0.729651, y: -0.46908, z: 1}
+  m_LocalPosition: {x: -0.17, y: -0.74, z: 0}
+  m_LocalScale: {x: 0.67219096, y: -0.32289562, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1529478007}
@@ -25819,7 +25819,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 38
-  m_Sprite: {fileID: -8588696538370453529, guid: 5e9c847ff17180241bd7faf5ea627c97,
+  m_Sprite: {fileID: -3145328045451892686, guid: 7a2a9461ce4e33e4d8afed51d8d60cec,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -25862,12 +25862,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b014501c836c75e4cbe05869d3e03a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: -8588696538370453529, guid: 5e9c847ff17180241bd7faf5ea627c97, type: 3}
-  - {fileID: -1057081680186535559, guid: 5e9c847ff17180241bd7faf5ea627c97, type: 3}
-  - {fileID: -6083282204405362191, guid: 5e9c847ff17180241bd7faf5ea627c97, type: 3}
-  - {fileID: 7433461848003775675, guid: 5e9c847ff17180241bd7faf5ea627c97, type: 3}
-  time: 0.4
+  idleSprites:
+  - {fileID: -3145328045451892686, guid: 7a2a9461ce4e33e4d8afed51d8d60cec, type: 3}
+  - {fileID: -6552843917330368855, guid: 7a2a9461ce4e33e4d8afed51d8d60cec, type: 3}
+  - {fileID: 7309844833446704383, guid: 7a2a9461ce4e33e4d8afed51d8d60cec, type: 3}
+  - {fileID: -1701584443341091289, guid: 7a2a9461ce4e33e4d8afed51d8d60cec, type: 3}
+  runSprites:
+  - {fileID: 5807353947552565585, guid: d3e67584c8a706942adf367883748b2b, type: 3}
+  - {fileID: -3540906705339577628, guid: d3e67584c8a706942adf367883748b2b, type: 3}
+  - {fileID: -6677707856435898171, guid: d3e67584c8a706942adf367883748b2b, type: 3}
+  - {fileID: 4002533974423468926, guid: d3e67584c8a706942adf367883748b2b, type: 3}
+  - {fileID: 2964676863673857177, guid: d3e67584c8a706942adf367883748b2b, type: 3}
+  - {fileID: -4675099393403972317, guid: d3e67584c8a706942adf367883748b2b, type: 3}
+  - {fileID: 4819010865800974824, guid: d3e67584c8a706942adf367883748b2b, type: 3}
+  - {fileID: 2581718483139709744, guid: d3e67584c8a706942adf367883748b2b, type: 3}
+  attackSprites:
+  - {fileID: -8119200819551934499, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
+  - {fileID: 1229346140777489561, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
+  - {fileID: 5711995858355082720, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
+  - {fileID: 6154797753170389393, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
+  - {fileID: -4210757112499032457, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
+  - {fileID: -2830949396554520664, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
+  - {fileID: -8560062385378966209, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
+  - {fileID: 3869856323132520785, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
+  frameTime: 0.1
 --- !u!114 &1529478009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25919,7 +25937,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.65625, y: 1.09375}
+    oldSize: {x: 1.15625, y: 1.5625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -25998,7 +26016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e902d1a7ed0eb52408aceac68d6edb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 50
+  max: 500
   current: 0
 --- !u!82 &1529478015
 AudioSource:
@@ -26440,13 +26458,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572002027}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.68, z: 0}
-  m_LocalScale: {x: 2, y: 1.5, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 2.55, z: 0}
+  m_LocalScale: {x: 3.1865625, y: 1.6875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 64076226}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &1572002029
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26522,6 +26540,7 @@ MonoBehaviour:
   cooldown: 0.3
   pivot: {fileID: 64076226}
   damage: 35
+  manaRestore: 10
   enemyMask:
     serializedVersion: 2
     m_Bits: 4096

@@ -25,12 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8634953327793274858}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.19, y: 0.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8634953327793274856
 SpriteRenderer:
@@ -43,10 +44,17 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -68,10 +76,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6000
-  m_Sprite: {fileID: 21300000, guid: 4dec8feeb0a51fe49aaa894a1965a29a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a8958c6a5c408f4c81a0ae8197c0a2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +104,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 4dec8feeb0a51fe49aaa894a1965a29a, type: 3}
-  - {fileID: 21300000, guid: 1a30a54ef112b4a42b8a14a7b8cc4743, type: 3}
-  - {fileID: 21300000, guid: 34a57ae542a8eb742b5f1bc21b9f5b08, type: 3}
+  - {fileID: 21300000, guid: 8a8958c6a5c408f4c81a0ae8197c0a2c, type: 3}
+  - {fileID: 21300000, guid: 4087e7490a6bfdb4d9efb1c066943a2e, type: 3}
+  - {fileID: 21300000, guid: 0c6bae29c4fd8e84a9fe1f84c27240f9, type: 3}
+  - {fileID: 21300000, guid: 5846b07f5938f69419f1f764fabc1078, type: 3}
+  - {fileID: 21300000, guid: 02496a3f42ebf1a4594d44ac634a17aa, type: 3}
+  - {fileID: 21300000, guid: 3e6f357e97b48fe44a3cd4f74ae625b5, type: 3}
   time: 0.06
