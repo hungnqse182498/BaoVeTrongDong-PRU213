@@ -4460,6 +4460,8 @@ MonoBehaviour:
     type: 3}
   wolfEaterPrefab: {fileID: 8011127346797358265, guid: d97a5a300028d1b43b7206f677adf17d,
     type: 3}
+  enemy01Prefab: {fileID: 6060242505385302422, guid: 0457787b8706bb147a050ea64eaae0c0,
+    type: 3}
   spawnPoints:
   - {fileID: 1624900929}
   - {fileID: 507649258}

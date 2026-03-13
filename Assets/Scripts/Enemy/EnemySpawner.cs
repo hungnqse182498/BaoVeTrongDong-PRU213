@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] Transform wolfPrefab;
     [SerializeField] Transform wolfEaterPrefab;
+    [SerializeField] Transform enemy01Prefab;
+
     [SerializeField] Transform[] spawnPoints;
 
     [SerializeField] int eaterChance = 3;     //Chance out of 10 wolves to spawn an eater wolf
@@ -38,16 +40,39 @@ public class EnemySpawner : MonoBehaviour
             timer = Time.time + currentSpawnTime;
         }
     }
+    //void Spawn()
+    //{
+    //    //Calculate eater wolf chance
+    //    if(Random.Range(0,11) > eaterChance)
+    //    {
+    //        Instantiate(wolfPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+    //    }
+    //    else
+    //    {
+    //        Instantiate(wolfEaterPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+    //    }
+    //}
+
     void Spawn()
     {
-        //Calculate eater wolf chance
-        if(Random.Range(0,11) > eaterChance)
+        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+        // 1. Kiểm tra xem có ra WolfEater không (dựa trên eaterChance)
+        if (Random.Range(0, 11) <= eaterChance)
         {
-            Instantiate(wolfPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+            Instantiate(wolfEaterPrefab, spawnPoint.position, Quaternion.identity);
         }
         else
         {
-            Instantiate(wolfEaterPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+            // 2. Nếu không ra Eater, thì chọn ngẫu nhiên 50/50 giữa Wolf và Enemy01
+            if (Random.Range(0, 2) == 0)
+            {
+                Instantiate(wolfPrefab, spawnPoint.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(enemy01Prefab, spawnPoint.position, Quaternion.identity);
+            }
         }
     }
 }
