@@ -3257,8 +3257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 64
-  m_RefResolutionX: 480
-  m_RefResolutionY: 360
+  m_RefResolutionX: 500
+  m_RefResolutionY: 400
   m_UpscaleRT: 0
   m_PixelSnapping: 0
   m_CropFrameX: 0
@@ -3299,7 +3299,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.27
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -16702,8 +16702,8 @@ Transform:
   m_GameObject: {fileID: 905201040}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17, y: -0.74, z: 0}
-  m_LocalScale: {x: 0.67219096, y: -0.32289562, z: 1}
+  m_LocalPosition: {x: -0.07, y: -0.74, z: 0}
+  m_LocalScale: {x: 1.2411337, y: -0.35682115, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1529478007}
@@ -25879,14 +25879,9 @@ MonoBehaviour:
   - {fileID: 4819010865800974824, guid: d3e67584c8a706942adf367883748b2b, type: 3}
   - {fileID: 2581718483139709744, guid: d3e67584c8a706942adf367883748b2b, type: 3}
   attackSprites:
-  - {fileID: -8119200819551934499, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
-  - {fileID: 1229346140777489561, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
-  - {fileID: 5711995858355082720, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
-  - {fileID: 6154797753170389393, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
   - {fileID: -4210757112499032457, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
   - {fileID: -2830949396554520664, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
   - {fileID: -8560062385378966209, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
-  - {fileID: 3869856323132520785, guid: 7ef6589cb79086d45a88956ba03248b6, type: 3}
   frameTime: 0.1
 --- !u!114 &1529478009
 MonoBehaviour:
@@ -28322,8 +28317,8 @@ Transform:
   m_GameObject: {fileID: 1882538947}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 0}
-  m_LocalScale: {x: 1.83487, y: 0.8761435, z: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1.6178392, y: 1.0577338, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 30125867}
