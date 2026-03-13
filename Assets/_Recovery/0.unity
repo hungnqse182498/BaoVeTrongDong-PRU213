@@ -25905,6 +25905,8 @@ GameObject:
   - component: {fileID: 1529478010}
   - component: {fileID: 1529478015}
   - component: {fileID: 1529478016}
+  - component: {fileID: 1529478017}
+  - component: {fileID: 1529478018}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -26269,8 +26271,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BambooSkill
   bambooPrefab: {fileID: 5666423619732133225, guid: ad240e2dd22e3f14ca2d7dbaa5b7342d,
     type: 3}
-  bambooCount: 5
-  distance: 1.5
+  rows: 6
+  rowDistance: 1
+  spreadAngle: 70
+  skillCooldown: 1.5
+--- !u!114 &1529478017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529478005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7ba98d8cab6504eb23be43bc9c1461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SickleSkill
+  sicklePrefab: {fileID: 7917904909214336662, guid: 96e8965d56fad58408e63852d56ac400,
+    type: 3}
+  cooldown: 1.2
+--- !u!114 &1529478018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529478005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ace216f1cce23459853e69c7d4eacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDash
+  dashSpeed: 20
+  dashDuration: 0.15
+  dashCooldown: 1
 --- !u!1001 &1534570686
 PrefabInstance:
   m_ObjectHideFlags: 0
