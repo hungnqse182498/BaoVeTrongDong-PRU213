@@ -20,6 +20,10 @@ public class EnemyAI : MonoBehaviour
     [Header("Target Masks")]
     [SerializeField] LayerMask bushesMask;
 
+    [Header("Audio")]
+    [SerializeField] AudioSource enemyAudioSource; // Cái loa của quái
+    [SerializeField] AudioClip attackSound;        // Tiếng đánh trụ (hoặc tiếng cắn)
+
     [HideInInspector] public bool isMoving;
     [HideInInspector] public bool left;
     [HideInInspector] public bool isAttacking;
@@ -129,7 +133,10 @@ public class EnemyAI : MonoBehaviour
 
 
         yield return new WaitForSeconds(0.45f); // frame 4: thực hiện ăn
-
+        if (enemyAudioSource != null && attackSound != null)
+        {
+            enemyAudioSource.PlayOneShot(attackSound);
+        }
         if (target != null && target.enabled)
         {
             if (target.HasFruits())
@@ -195,6 +202,10 @@ public class EnemyAI : MonoBehaviour
 
     void Attack()
     {
+        if (enemyAudioSource != null && attackSound != null)
+        {
+            enemyAudioSource.PlayOneShot(attackSound);
+        }
         artifact.Damage(attackDamage);
     }
 
