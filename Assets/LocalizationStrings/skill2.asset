@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa06c6371307e847aca1c15b64861d5, type: 3}
+  m_Name: skill2
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizableString
+  english: Summons sharp bamboo spikes from the ground. Deals massive AoE damage
+    and knocks up enemies. Has a long cooldown.
+  vietnamese: "G\u1ECDi ch\xF4ng tre m\u1ECDc b\xF9ng l\xEAn t\u1EEB l\xF2ng \u0111\u1EA5t
+    trong m\u1ED9t khu v\u1EF1c. G\xE2y s\xE1t th\u01B0\u01A1ng di\u1EC7n r\u1ED9ng
+    v\xE0 h\u1EA5t tung qu\xE1i v\u1EADt. Th\u1EDDi gian h\u1ED3i chi\xEAu l\xE2u."
