@@ -6,10 +6,12 @@ public class EnemyHealth : MonoBehaviour
     public int current;
 
     EnemyAI enemyAI;
+    BossAI bossAI;
     private void Awake()
     {
         current = max;
         enemyAI = GetComponent<EnemyAI>();
+        bossAI = GetComponent<BossAI>();
 
     }
 
@@ -22,6 +24,14 @@ public class EnemyHealth : MonoBehaviour
             enemyAI.TakeDamage(amount);
             // cập nhật current để UI đọc
             current = Mathf.Max(0, enemyAI.CurrentHealth);
+            return;
+        }
+
+        if (bossAI != null)
+        {
+            bossAI.TakeDamage(amount);
+            // cập nhật current để UI đọc
+            current = Mathf.Max(0, bossAI.CurrentHealth);
             return;
         }
 

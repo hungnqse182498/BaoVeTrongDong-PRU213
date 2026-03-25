@@ -12,9 +12,6 @@ public class PlayerSlash : MonoBehaviour
     public Transform pivot;
     public int damage = 35;
 
-    [Header("Mana Restore")] // Mana
-    [Min(1)] public int manaRestore = 10;
-
     float timer;
     new Collider2D collider2D;
     public LayerMask enemyMask;
@@ -22,25 +19,17 @@ public class PlayerSlash : MonoBehaviour
 
     PlayerMovement playerMovement;
     PlayerSpriteAnim playerAnim;
-    //PlayerMana playerMana;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         playerMovement = GetComponentInParent<PlayerMovement>();
         playerAnim = GetComponentInParent<PlayerSpriteAnim>();
-        //playerMana = GetComponentInParent<PlayerMana>();
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > timer)
         {
-            //// --- HỒI MANA ---
-            //if (playerMana == null)
-            //{
-            //    return;
-            //}
-            //playerMana.RestoreMana(manaRestore);
 
             Slash();
             audioSource.Play();
@@ -57,12 +46,15 @@ public class PlayerSlash : MonoBehaviour
         {
             foreach (Collider2D hit in hits)
             {
+                BossAI boss = hit.GetComponent<BossAI>();
                 EnemyAI enemy = hit.GetComponent<EnemyAI>();
                 if (enemy != null)
                 {
-                    enemy.TakeDamage(damage); // hoặc damage nếu bạn muốn tính theo Player
-                    //if (playerMana != null)
-                    //    playerMana.RestoreMana(manaRestore);
+                    enemy.TakeDamage(damage);
+                }
+                else if (boss != null)
+                {
+                    boss.TakeDamage(damage);
                 }
             }
 

@@ -11,6 +11,9 @@ public class PlayerHarvest : MonoBehaviour
     [SerializeField] float harvestTime;
     [SerializeField] LayerMask bushesMask;
 
+    [Header("Audio Settings")]
+    [SerializeField] AudioClip harvestSound; // Kéo file âm thanh nhặt quả vào đây
+
     PlayerMovement playerMovement;
     PlayerBackpack backpack;
     AudioSource audioSource;
@@ -30,22 +33,18 @@ public class PlayerHarvest : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Harvesting is done in 2 parts: first, it tries to harvest really close bushes to guarantee that if the player harvests near 2 bushes,
-    /// it will always harvest the closest one.
-    /// <para>Then, if nothing was harvested in a close radius, it tries to harvest in the normal radius with <see cref="TryHarvestFruit"/></para>
-    /// </summary>
     void TryHarvestClose()
     {
-        Collider2D hit =
-        Physics2D.OverlapCircle(transform.position, harvestRadius / 2, bushesMask);
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, harvestRadius / 2, bushesMask);
 
         if (hit != null)
         {
             BushFruits bush = hit.GetComponent<BushFruits>();
             if (bush.HasFruits())
             {
-                audioSource.Play();
+                // THAY ĐỔI Ở ĐÂY: Dùng PlayOneShot để không ngắt quãng âm thanh khác
+                PlayHarvestAudio();
+
                 playerMovement.HarvestStopMovement(harvestTime);
                 backpack.AddFruits(bush.HarvestFruit());
             }
@@ -55,22 +54,40 @@ public class PlayerHarvest : MonoBehaviour
             TryHarvestFruit();
         }
     }
+
     void TryHarvestFruit()
     {
-        Collider2D hit =
-        Physics2D.OverlapCircle(transform.position, harvestRadius, bushesMask);
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, harvestRadius, bushesMask);
 
         if (hit != null)
         {
             BushFruits bush = hit.GetComponent<BushFruits>();
             if (bush.HasFruits())
             {
-                audioSource.Play();
+                // THAY ĐỔI Ở ĐÂY: Dùng PlayOneShot
+                PlayHarvestAudio();
+
                 playerMovement.HarvestStopMovement(harvestTime);
                 backpack.AddFruits(bush.HarvestFruit());
             }
         }
     }
+
+    // Hàm phụ trách phát âm thanh riêng biệt
+    void PlayHarvestAudio()
+    {
+        if (audioSource != null && harvestSound != null)
+        {
+            // PlayOneShot giúp âm thanh này nổ ra độc lập, chồng lên các tiếng khác được
+            audioSource.PlayOneShot(harvestSound);
+        }
+        else if (harvestSound == null)
+        {
+            // Nếu bạn lỡ quên chưa kéo Clip vào, nó sẽ gọi Play mặc định để chữa cháy
+            audioSource.Play();
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
@@ -81,5 +98,4 @@ public class PlayerHarvest : MonoBehaviour
     {
         TryHarvestClose();
     }
-
 }

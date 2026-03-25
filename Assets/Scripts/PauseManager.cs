@@ -35,6 +35,6 @@ public class PauseManager : MonoBehaviour
     public void QuitToMenu()
     {
         Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");// ✅ chạy ngon ngay
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 }

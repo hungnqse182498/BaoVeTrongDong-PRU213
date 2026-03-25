@@ -1,26 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Shows the remaining time to the user in the object's <see cref="Text"/>
-/// </summary>
 public class RemainingTimeUI : MonoBehaviour
 {
-    public LocalizableString remainingTime;
-    public LocalizableString secondsString;
+    [Header("Cấu hình chữ")]
+    public string prefixText = "Thời gian tới đợt";
+    public string suffixText = "giây";
+    public string bossText = "ĐỢT CUỐI: BOSS XUẤT HIỆN!";
+
     public Manager manager;
-    Text text;
+    private Text text;
 
     void Start()
     {
         text = GetComponent<Text>();
+        if (manager == null) manager = Object.FindAnyObjectByType<Manager>();
     }
 
     void Update()
     {
-        text.text = remainingTime.GetString(Localization.currentLanguage) + ": " + (int)manager.GetTime() 
-            + " "+ secondsString.GetString(Localization.currentLanguage);
+        if (manager == null || text == null) return;
+
+        // Lấy thời gian còn lại
+        float timeVal = manager.GetTimeUntilNextWave();
+        int displayTime = Mathf.Max(0, (int)timeVal);
+
+        // Kiểm tra xem có đang ở đợt cuối (Boss) không
+        if (manager.currentWave >= manager.waveTimings.Length)
+        {
+            text.text = bossText;
+        }
+        else
+        {
+            // Hiển thị dạng: Thời gian tới đợt 2: 15 giây
+            // (manager.currentWave + 1) vì trong code wave bắt đầu từ 0
+            int nextWaveNumber = manager.currentWave + 1;
+            text.text = prefixText + " " + nextWaveNumber + ": " + displayTime + " " + suffixText;
+        }
     }
 }

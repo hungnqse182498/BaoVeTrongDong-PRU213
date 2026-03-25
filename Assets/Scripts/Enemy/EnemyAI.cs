@@ -68,6 +68,8 @@ public class EnemyAI : MonoBehaviour
             eh.max = maxHealth;
             eh.current = currentHealth;
         }
+        attackTimer = Time.time + attackCooldown;
+        eatTimer = Time.time + eatTime;
     }
 
     void Update()
@@ -264,22 +266,6 @@ public class EnemyAI : MonoBehaviour
         if (eh != null) eh.current = 0;
 
         yield return new WaitForSeconds(1.0f);
-
-        if (UpgradeItems != null && UpgradeItems.Length > 0)
-        {
-            Vector3 spawnPos = transform.position + Vector3.up * 0.3f;
-            int rand = Random.Range(0, UpgradeItems.Length); // chọn ngẫu nhiên 1 loại đá
-            GameObject item = Instantiate(UpgradeItems[rand], spawnPos, Quaternion.identity);
-
-            Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                // Văng nhẹ ra hướng ngẫu nhiên
-                Vector2 dir = Random.insideUnitCircle.normalized;
-                rb.AddForce(dir * 2f, ForceMode2D.Impulse);
-            }
-        }
-
         Destroy(gameObject);
     }
 }

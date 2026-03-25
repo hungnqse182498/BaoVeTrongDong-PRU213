@@ -2,15 +2,23 @@
 
 public class InfoPanelController : MonoBehaviour
 {
-    public GameObject[] panels; // tất cả panel
+    public GameObject panel; // kéo thả panel trong Inspector
 
-    public void ShowPanel(int index)
+    public void TogglePanel()
     {
-        for (int i = 0; i < panels.Length; i++)
-        {
-            panels[i].SetActive(false);
-        }
+        bool isCurrentlyActive = panel.activeSelf;
 
-        panels[index].SetActive(true);
+        // Tắt tất cả panel khác
+        PanelManager.Instance.CloseAllPanels();
+
+        // Nếu trước đó panel đang tắt → bật panel
+        if (!isCurrentlyActive)
+        {
+            panel.SetActive(true);
+
+            // Ẩn guide khi bật panel
+            PanelManager.Instance.HideGuides();
+        }
+        // Nếu panel đang bật → giữ tắt, Guide sẽ tự hiện vì CloseAllPanels() đã gọi ShowGuides()
     }
 }
